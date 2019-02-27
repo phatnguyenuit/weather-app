@@ -1,3 +1,17 @@
+# Weather App
+
+## Simple weather app with ReactJS using [redux](https://redux.js.org/), [material-ui](https://material-ui.com/), [redux-saga](https://redux-saga.js.org) and [OpenWeatherMap API](https://openweathermap.org/api)
+
+## Installation
+
+- Register new [Openweathermap API](https://openweathermap.org/api) key.
+
+- Create new file `.env` by copying file `.env.example` and put your API key.
+
+- Run : `yarn install`
+
+- Run `yarn start`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
