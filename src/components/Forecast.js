@@ -35,7 +35,7 @@ const Forecast = props => {
         {Object.keys(groupedByDate).map(date_key => {
           let date_items = groupedByDate[date_key] || [];
           return (
-            <div>
+            <div key={date_key}>
               <p>
                 <strong>{date_key}</strong>
               </p>
