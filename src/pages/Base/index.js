@@ -32,7 +32,15 @@ const styles = theme => ({
 });
 
 class Base extends Component {
+  constructor(props) {
+    super(props);
+    const { theme } = this.props;
+    this.state = {
+      theme: theme || {}
+    };
+  }
   render() {
+    console.log(this.props);
     const { classes, children } = this.props;
     return (
       <div className={classes.root}>
@@ -61,4 +69,4 @@ Base.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Base));
+export default withRoot(withStyles(styles, { withTheme: true })(Base));
