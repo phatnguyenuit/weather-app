@@ -9,7 +9,7 @@ import Paper from "@material-ui/core/Paper";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(150px, 1fr) );
+  grid-template-columns: repeat( auto-fill, minmax(165px, 1fr) );
   grid-gap: 24px;
   padding-right: 16px;
 `;
