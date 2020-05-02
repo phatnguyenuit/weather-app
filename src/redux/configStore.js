@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import reducers from './rootReducer';
 
 export const history = createBrowserHistory({
-  // basename: '/test' base path
+  // basename: '/weather-app'
 });
 const sagaMiddleware = createSagaMiddleware();
 
