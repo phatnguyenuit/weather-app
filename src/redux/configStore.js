@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import reducers from './rootReducer';
 
 export const history = createBrowserHistory({
-  basename: '/test'
+  // basename: '/test' base path
 });
 const sagaMiddleware = createSagaMiddleware();
 
