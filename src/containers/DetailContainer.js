@@ -1,7 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import DetailPage from '../pages/DetailPage';
-import { getWeatherWatcher } from '../redux/sagas/weatherSaga/actions';
+
+import DetailPage from 'pages/DetailPage';
+import { getWeatherWatcher } from 'redux/sagas/weatherSaga/actions';
 
 const mapStateToProps = state => {
   const { loading, error, weather, forecast } = state.weatherSaga;

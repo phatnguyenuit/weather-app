@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import runtimeEnv from "@mars/heroku-js-runtime-env";
 
 const env = runtimeEnv();
@@ -18,10 +18,7 @@ const Weather = props => {
     main: { temp }
   } = props;
   const { description, icon } = weather[0];
-  const datetime = moment
-    .unix(dt)
-    .local()
-    .format("HH:mm MMM DD");
+  const datetime = dayjs.unix(dt).format("HH:mm MMM DD");
   return (
     <>
       <h3>

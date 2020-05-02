@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-
-import AppBar from "@material-ui/core/AppBar";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
+import AppBar from "@material-ui/core/AppBar";
+import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import withRoot from "../../withRoot";
 import { withStyles } from "@material-ui/core/styles";
+
+import withRoot from "withRoot";
 
 const styles = theme => ({
   root: {
@@ -51,7 +53,9 @@ class Base extends Component {
             <div className={classes.grow} />
           </Toolbar>
         </AppBar>
-        <div className={classes.ml5}>{children}</div>
+        <Box className={classes.ml5} bgcolor="#f5f5f5">
+          {children}
+        </Box>
       </div>
     );
   }

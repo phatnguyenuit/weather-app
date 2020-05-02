@@ -1,8 +1,19 @@
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import React from "react";
-import moment from "moment";
+
+import dayjs from "dayjs";
+import styled from "styled-components";
 import runtimeEnv from "@mars/heroku-js-runtime-env";
+
+import Paper from "@material-ui/core/Paper";
+
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(150px, 1fr) );
+  grid-gap: 24px;
+  padding-right: 16px;
+`;
+
 
 const env = runtimeEnv();
 const ICON_URL = env.REACT_APP_ICON_URL;
@@ -17,10 +28,8 @@ const Forecast = props => {
   list.forEach(forecast => {
     const { dt } = forecast;
 
-    const dt_str = moment
-      .unix(dt)
-      .local()
-      .format("MMM DD");
+
+    const dt_str = dayjs.unix(dt).format("MMM DD");
     let currentGroup = groupedByDate[dt_str] || [];
     currentGroup.push(forecast);
     groupedByDate[dt_str] = currentGroup;
@@ -39,7 +48,7 @@ const Forecast = props => {
               <p>
                 <strong>{date_key}</strong>
               </p>
-              <Grid container spacing={24}>
+              <Container>
                 {date_items.map(forecast => {
                   const {
                     dt,
@@ -47,33 +56,28 @@ const Forecast = props => {
                     main: { temp, temp_max, temp_min }
                   } = forecast;
                   return (
-                    <Grid item key={dt}>
-                      <Paper style={{ padding: "30px" }}>
-                        <p>
-                          {moment
-                            .unix(dt)
-                            .local()
-                            .format("HH:mm")}
-                        </p>
-                        <img
-                          src={`${ICON_URL}/${weather[0].icon}.png`}
-                          alt={`Weather forecast in ${name}, ${country}`}
-                        />
+                    <Paper style={{ padding: "30px" }} key={dt}>
+                      <p>
+                        {dayjs.unix(dt).format("HH:mm")}
+                      </p>
+                      <img
+                        src={`${ICON_URL}/${weather[0].icon}.png`}
+                        alt={`Weather forecast in ${name}, ${country}`}
+                      />
 
-                        <p>
-                          <strong>Temp: {temp} °C</strong>
-                        </p>
-                        <p>
-                          <strong>Max: {temp_max} °C</strong>
-                        </p>
-                        <p>
-                          <strong>Min: {temp_min} °C</strong>
-                        </p>
-                      </Paper>
-                    </Grid>
+                      <p>
+                        <strong>Temp: {temp} °C</strong>
+                      </p>
+                      <p>
+                        <strong>Max: {temp_max} °C</strong>
+                      </p>
+                      <p>
+                        <strong>Min: {temp_min} °C</strong>
+                      </p>
+                    </Paper>
                   );
                 })}
-              </Grid>
+              </Container>
             </div>
           );
         })}

@@ -6,7 +6,9 @@ import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import reducers from './rootReducer';
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory({
+  basename: '/test'
+});
 const sagaMiddleware = createSagaMiddleware();
 
 let composeEnhancers = compose;

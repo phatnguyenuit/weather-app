@@ -1,20 +1,20 @@
-import "./index.css";
+import './index.css';
 
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from './serviceWorker';
 
-import { Provider } from "react-redux";
-import React from "react";
-import ReactDOM from "react-dom";
-import Routes from "./Router";
-import store from "./redux/configStore";
+import { Provider } from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Routes from './Router';
+import store from './redux/configStore';
 
-document.title = "Weather App";
+document.title = 'Weather App';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
-  document.getElementById("root")
+	<Provider store={store}>
+		<Routes />
+	</Provider>,
+	document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

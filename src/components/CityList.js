@@ -1,37 +1,29 @@
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import React from "react";
+
+import { Link } from 'react-router-dom';
+import MuiLink from "@material-ui/core/Link";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
 
 const ListItem = props => {
   return (
-    <Grid item>
-      <Paper style={{ padding: "20px" }}>
-        <p>
-          <strong>{props.value}</strong>
-        </p>
-        <Button
-          href={`/detail/${props.id}`}
-          color="primary"
-          variant="text"
-          fullWidth
-        >
-          Detail
-        </Button>
-      </Paper>
-    </Grid>
+    <Paper>
+      <Box p={1}>
+        <Link to={`/detail/${props.id}`} component={MuiLink}>
+          <span>
+            <strong>{props.value}</strong>
+          </span>
+        </Link>
+      </Box>
+    </Paper>
   );
 };
 
 const CityList = props => {
   const cityList = props.cityList;
-  return (
-    <Grid container spacing={24}>
-      {cityList.map(city => (
-        <ListItem key={city.id} value={city.name} id={city.id} />
-      ))}
-    </Grid>
-  );
+  return cityList.map(city => (
+    <ListItem key={city.id} value={city.name} id={city.id} />
+  ));
 };
 
 export default CityList;
